@@ -1,6 +1,6 @@
 import { userManager } from './userManager';
 import { getUserId } from './common';
-import { keyboard_start, keyboard_gender, keyboard_activity, keyboard_confirmation, keyboard_actions, keyboard_goal, keyboard_diary } from './keyboards';
+import { keyboard_start, keyboard_gender, keyboard_activity, keyboard_actions, keyboard_goal, keyboard_diary } from './keyboards';
 
 // Определение имени пользователя
 export async function getName(ctx: any) {

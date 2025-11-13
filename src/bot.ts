@@ -1,5 +1,4 @@
-// src/bot.ts
-import { Bot, Keyboard } from '@maxhub/max-bot-api';
+import { Bot } from '@maxhub/max-bot-api';
 import "dotenv/config";
 import { userManager } from './userManager';
 import { getUserId } from './common';
