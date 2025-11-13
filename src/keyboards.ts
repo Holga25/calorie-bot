@@ -1,6 +1,6 @@
 import { Keyboard } from '@maxhub/max-bot-api';
 
-// Клавиатура для старта регистрации
+// Клавиатура для старта
 export const keyboard_start = Keyboard.inlineKeyboard([
   [Keyboard.button.callback('Да!', 'start_registration')]
 ]);
@@ -26,7 +26,7 @@ export const keyboard_confirmation = Keyboard.inlineKeyboard([
   [Keyboard.button.callback('❌ Нет, заполнить заново', 'confirmation:no')]
 ]);
 
-// Клавиатура для действий (после расчета калорий)
+// Клавиатура для действий после расчета калорий
 export const keyboard_actions = Keyboard.inlineKeyboard([
   [Keyboard.button.callback('🗑️ Удалить мои данные', 'action:delete')],
   [Keyboard.button.callback('📝 Изменить данные', 'action:edit')],

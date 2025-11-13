@@ -1,7 +1,7 @@
 // src/bot.ts
 import { Bot, Keyboard } from '@maxhub/max-bot-api';
 import "dotenv/config";
-import { userManager } from './UserManager';
+import { userManager } from './userManager';
 import { getUserId } from './common';
 import { getName, handleMessage, askGender, startDataEditing, calculateCalories, resetUserData, startFoodTracking, showTodaySummary, startFoodInput } from './handlers';
 import {keyboard_confirmation, keyboard_diary, keyboard_actions} from './keyboards';
@@ -70,7 +70,6 @@ bot.on('message_created', async (ctx) => {
 // Обработка нажатий на кнопки
 bot.on('message_callback', async (ctx) => {
   const userId = getUserId(ctx);
-  console.log('callback - userId:', userId, 'payload:', ctx.callback.payload);
 
   if (!userId) {
     await ctx.reply('❌ Не удалось определить ваш профиль.');

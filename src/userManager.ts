@@ -44,7 +44,6 @@ export class UserManager {
       dailyCalories: null,
       foodEntries: []
     });
-    console.log(`User ${userId} created, total users: ${this.users.size}`);
   }
 
   // Сброс данных пользователя
@@ -61,7 +60,6 @@ export class UserManager {
       user.goal = null;
       user.dailyCalories = null;
       user.foodEntries = [];
-      console.log(`User ${userId} data reset`);
     }
   }
 
@@ -75,7 +73,6 @@ export class UserManager {
       user.weight = null;
       user.activity = null;
       user.step = 'gender';
-      console.log(`User ${userId} started calculation`);
     }
   }
 
@@ -93,9 +90,6 @@ export class UserManager {
     if (user) {
       user.gender = gender;
       user.step = 'age';
-      console.log(`User ${userId}: gender set to ${gender}, step changed to ${user.step}`);
-    } else {
-      console.log(`User ${userId} not found when setting gender`);
     }
   }
 
@@ -104,9 +98,6 @@ export class UserManager {
     if (user) {
       user.age = age;
       user.step = 'height';
-      console.log(`User ${userId}: age set to ${age}, step changed to ${user.step}`);
-    } else {
-      console.log(`User ${userId} not found when setting age`);
     }
   }
 
@@ -134,9 +125,6 @@ export class UserManager {
     if (user) {
       user.activity = activity;
       user.step = 'confirmation';
-      console.log(`User ${userId}: activity set to ${activity}, step changed to ${user.step}`);
-    } else {
-      console.log(`User ${userId} not found when setting activity`);
     }
   }
 
@@ -145,7 +133,6 @@ export class UserManager {
     const user = this.users.get(userId);
     if (user) {
       user.step = 'done';
-      console.log(`User ${userId} confirmed data`);
     }
   }
 
@@ -156,7 +143,6 @@ export class UserManager {
       user.goal = goal;
       user.dailyCalories = dailyCalories;
       user.foodEntries = [];
-      console.log(`User ${userId} set goal: ${goal} with ${dailyCalories} calories`);
     }
   }
 
@@ -171,7 +157,6 @@ export class UserManager {
         timestamp: new Date()
       };
       user.foodEntries.push(entry);
-      console.log(`User ${userId} added food: ${food} (${calories} kcal)`);
     }
   }
 

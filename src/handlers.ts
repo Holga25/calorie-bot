@@ -1,4 +1,4 @@
-import { userManager } from './UserManager';
+import { userManager } from './userManager';
 import { getUserId } from './common';
 import { keyboard_start, keyboard_gender, keyboard_activity, keyboard_confirmation, keyboard_actions, keyboard_goal, keyboard_diary } from './keyboards';
 
@@ -45,28 +45,20 @@ export async function handleMessage(ctx: any) {
   const userId = getUserId(ctx);
   const text = ctx.message?.body?.text?.trim();
 
-  console.log('handleMessage - userId:', userId, 'text:', text);
-
   if (!userId || !text) {
-    console.log('No userId or text');
     return;
   }
 
   const user = userManager.getUser(userId);
-  console.log('handleMessage - user:', user);
 
   if (!user) {
-    console.log('User not found');
     return;
   }
 
   // Если пользователь уже отслеживает питание и это не шаг регистрации - игнорируем
   if (user.dailyCalories && user.step === 'done') {
-    console.log('User is tracking food, ignoring registration message');
     return;
   }
-
-  console.log('Current step:', user.step);
 
   // Шаг: имя
   if (user.step === 'name') {
@@ -75,15 +67,13 @@ export async function handleMessage(ctx: any) {
     await sendWelcomeMessage(ctx, text);
     return;
   }
-
+  // Шаг: пол
   if (user.step === 'gender') {
-    console.log('User at gender step, ignoring text message');
     return;
   }
 
   // Шаг: возраст
   if (user.step === 'age') {
-    console.log('Processing age step');
     const age = Number(text);
     if (!isNaN(age) && age >= 1 && age <= 120) {
       userManager.setAge(userId, age);
@@ -96,7 +86,6 @@ export async function handleMessage(ctx: any) {
 
   // Шаг: рост
   if (user.step === 'height') {
-    console.log('Processing height step');
     const height = Number(text);
     if (!isNaN(height) && height >= 50 && height <= 250) {
       userManager.setHeight(userId, height);
@@ -109,7 +98,6 @@ export async function handleMessage(ctx: any) {
 
   // Шаг: вес
   if (user.step === 'weight') {
-    console.log('Processing weight step');
     const weight = Number(text);
     if (!isNaN(weight) && weight >= 20 && weight <= 500) {
       userManager.setWeight(userId, weight);
@@ -121,14 +109,11 @@ export async function handleMessage(ctx: any) {
     return;
   }
 
-  // Шаг: подтверждение - игнорируем текстовые сообщения, ждем только кнопки
+  // Шаг: подтверждение - игнорируем текстовые сообщения, только кнопки
   if (user.step === 'confirmation') {
-    console.log('User at confirmation step, ignoring text - waiting for buttons');
     await ctx.reply('Пожалуйста, используй кнопки "Да" или "Нет" для подтверждения данных');
     return;
   }
-
-  console.log('No matching step found');
 }
 
 // Отправляет сообщение с кнопками для выбора пола
