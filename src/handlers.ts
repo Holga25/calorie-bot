@@ -67,6 +67,7 @@ export async function handleMessage(ctx: any) {
     await sendWelcomeMessage(ctx, text);
     return;
   }
+
   // Шаг: пол
   if (user.step === 'gender') {
     return;

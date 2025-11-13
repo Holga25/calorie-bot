@@ -16,7 +16,6 @@ bot.on('bot_started', async (ctx) => {
     await ctx.reply('❌ Не удалось определить ваш профиль.');
     return;
   }
-  // Создаём новую запись о пользователе с начальным состоянием
   userManager.createUser(userId);
   await getName(ctx);
 });

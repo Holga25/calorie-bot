@@ -12,7 +12,7 @@ export interface UserData {
   dailyCalories: number | null;
   foodEntries: FoodEntry[];
 }
-
+// описание структуры еды для дневника
 export interface FoodEntry {
   id: string;
   food: string;
