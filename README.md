@@ -1,7 +1,7 @@
 # Инструкция по запуску бота 
 
 ## 1. Клонировать репозиторий и перейти в него
-git clone https://github.com/Holga/calorie-bot.git
+git clone https://github.com/Holga25/calorie-bot.git
 
 cd calorie-bot
 
