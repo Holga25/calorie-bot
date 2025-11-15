@@ -15,7 +15,7 @@ export interface UserData {
   updated_at: string;
 }
 
-export class Usermanager {
+export class UserManager {
   private lastSearchResults: { [userId: string]: FoodItem[] } = {};
   private pendingFoodInput: { [userId: string]: string } = {};
   private pendingFoodCalories: { [userId: string]: number } = {};
@@ -422,4 +422,4 @@ export class Usermanager {
   }
 }
 
-export const userManager = new Usermanager();
+export const userManager = new UserManager();

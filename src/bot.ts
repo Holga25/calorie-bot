@@ -1,6 +1,6 @@
 import { Bot } from '@maxhub/max-bot-api';
 import "dotenv/config";
-import { userManager } from './usermanager.ts';
+import { userManager } from './userManager.ts';
 import { getUserId, safeReply, delay, measureTime, isProcessing, startProcessing, endProcessing, canProcessRequest, ensureString, safeAnswerCallback } from './common.ts';
 import {
   getName, handleMessage, askGender, startDataEditing, calculateCalories,

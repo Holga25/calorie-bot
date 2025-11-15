@@ -1,4 +1,4 @@
-import { userManager } from './usermanager.ts';
+import { userManager } from './userManager.ts';
 import { getUserId, safeReply, delay } from './common.ts';
 import { db } from './database.ts'
 import {
